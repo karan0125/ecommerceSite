@@ -7,20 +7,21 @@ runtime_config:
 # Ensure we skip ".env", which is only for local development
 skip_files:
     - .env #we want to skip this to make sure we don’t mess stuff up on the server
-
 env_variables:
     # Put production environment variables here.
     APP_NAME: E-Commerce
     APP_ENV: local   # or production
     APP_DEBUG : true # or false
     APP_KEY: base64:ezutoOQCugBReIhBbFlNopgWNvB78eXGXfPgGgFGXRc=
+    APP_STORAGE: /tmp
+    VIEW_COMPILED_PATH: /tmp
     #go to generate app key paragraf in this tutorial
 
     CACHE_DRIVER: database
-
+    LOG_CHANNEL: syslog
     # instead of putting the cache in the database I recommend using redis
     SESSION_DRIVER: database #or file since both work
-
+    APP_URL: https://ecommerce-250805.appspot.com
     APP_LOG: daily
     APP_TIMEZONE: UTC #your timezone of choice
 
@@ -33,6 +34,15 @@ env_variables:
     DB_USERNAME: root
     DB_PASSWORD: bunty3030
     DB_SOCKET: /cloudsql/ecommerce-250805:asia-south1:ecommercedb
+
+    MAIL_DRIVER: smtp
+    MAIL_HOST: smtp.googlemail.com
+    MAIL_PORT: 465
+    MAIL_USERNAME: aprushab@gmail.com
+    MAIL_PASSWORD: buntyambre3030
+    MAIL_ENCRYPTION: ssl
+    MAIL_FROM_NAME: "E-Commerce"
+    MAIL_FROM_ADDRESS: aprushab@gmail.com
 
 # Use the connection name obtained when configuring your Cloud SQL instance.
 beta_settings:
